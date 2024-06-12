@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;     /*控制"水平方向"上溢出内容的顯示方式。hidden:溢出内容會被隱藏*/
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;     /*固定選單，不會隨頁面滾動而移動*/
+    top: 20px;
+    left: 20px;
+    z-index: 1000;  /*選單的層疊順序*/
+}
+.line{
+    width: 50px;
+    height: 5px;
+    background-color: #0c021cc6;
+    margin: 4px 0;
+    transition: 0.3s;   /*鼠標停留在線上，過渡效果，使動畫更平滑*/
+}
+.sidebar{
+    font-size:26px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;   /*將側邊欄移出螢幕來隱藏側邊欄*/
+    background-color: #2b23382c;
+    transition: 0.3s;
+    z-index: 999;
+}
+.sidebar ul{
+    list-style-type: none;
+    padding: 20px;
+}
+.sidebar ul li{
+    padding: 10px 0;
+}
+.sidebar ul li a{
+    color: #7f7f7f;
+    text-decoration: none;   /*文本的裝飾效果 如下劃線.刪除線*/
+}
+.sidebar ul li a:hover{
+    color: #323030;
+    text-decoration: underline wavy 4px;
+}
+.ma{
+    margin-left: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.open{
+    left: 0;    /*將側邊欄移到視圖中*/
+}
+.sidebar-open{
+    margin-left: 250px;     /*側邊欄打開時調整主要內容*/
+}
+body.fixed {
+    overflow: hidden;
+}
+.blur{
+    filter: blur(5px);  /*將内容模糊化*/
+}
+/*使漢堡選單的線條像打叉符號*/
+.move .line:nth-child(1){
+    transform: rotate(-45deg) translate(-10px, 10px);
+    /*旋轉-45度 向上移動10像素 向右移動10像素*/
+}
+.move .line:nth-child(2){
+    opacity: 0;
+     /*不透明度設為0*/
+}
+.move .line:nth-child(3){
+    transform: rotate(45deg) translate(-8px, -8px);
+    /*旋轉45度 向下移動8像素 向右移動8像素*/
+}
